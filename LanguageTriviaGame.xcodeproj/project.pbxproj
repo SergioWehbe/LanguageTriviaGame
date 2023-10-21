@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		496BC07E2AE3B01E008EB517 /* MultipleChoiceQuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BC07D2AE3B01E008EB517 /* MultipleChoiceQuestionModel.swift */; };
 		496BC0802AE3B253008EB517 /* MultipleChoiceQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BC07F2AE3B253008EB517 /* MultipleChoiceQuestionView.swift */; };
-		496BC0832AE3B915008EB517 /* CardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BC0822AE3B915008EB517 /* CardModifier.swift */; };
+		496BC0832AE3B915008EB517 /* CardTiltedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BC0822AE3B915008EB517 /* CardTiltedView.swift */; };
 		496BC0852AE3B94A008EB517 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BC0842AE3B94A008EB517 /* AnswerButton.swift */; };
+		496BC0872AE3D224008EB517 /* CardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BC0862AE3D224008EB517 /* CardModifier.swift */; };
 		49A9CFBE2AE245DD00AC1A32 /* LanguageTriviaGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A9CFBD2AE245DD00AC1A32 /* LanguageTriviaGameApp.swift */; };
 		49A9CFC02AE245DD00AC1A32 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A9CFBF2AE245DD00AC1A32 /* ContentView.swift */; };
 		49A9CFC22AE245E000AC1A32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49A9CFC12AE245E000AC1A32 /* Assets.xcassets */; };
@@ -22,8 +23,9 @@
 /* Begin PBXFileReference section */
 		496BC07D2AE3B01E008EB517 /* MultipleChoiceQuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChoiceQuestionModel.swift; sourceTree = "<group>"; };
 		496BC07F2AE3B253008EB517 /* MultipleChoiceQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChoiceQuestionView.swift; sourceTree = "<group>"; };
-		496BC0822AE3B915008EB517 /* CardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModifier.swift; sourceTree = "<group>"; };
+		496BC0822AE3B915008EB517 /* CardTiltedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTiltedView.swift; sourceTree = "<group>"; };
 		496BC0842AE3B94A008EB517 /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
+		496BC0862AE3D224008EB517 /* CardModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardModifier.swift; sourceTree = "<group>"; };
 		49A9CFBA2AE245DD00AC1A32 /* LanguageTriviaGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanguageTriviaGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A9CFBD2AE245DD00AC1A32 /* LanguageTriviaGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTriviaGameApp.swift; sourceTree = "<group>"; };
 		49A9CFBF2AE245DD00AC1A32 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,7 +60,8 @@
 		496BC0812AE3B8C0008EB517 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				496BC0822AE3B915008EB517 /* CardModifier.swift */,
+				496BC0822AE3B915008EB517 /* CardTiltedView.swift */,
+				496BC0862AE3D224008EB517 /* CardModifier.swift */,
 				496BC0842AE3B94A008EB517 /* AnswerButton.swift */,
 			);
 			path = Views;
@@ -176,10 +179,11 @@
 				49A9CFCD2AE24EBC00AC1A32 /* Theme.swift in Sources */,
 				496BC0852AE3B94A008EB517 /* AnswerButton.swift in Sources */,
 				496BC07E2AE3B01E008EB517 /* MultipleChoiceQuestionModel.swift in Sources */,
+				496BC0872AE3D224008EB517 /* CardModifier.swift in Sources */,
 				496BC0802AE3B253008EB517 /* MultipleChoiceQuestionView.swift in Sources */,
 				49A9CFC02AE245DD00AC1A32 /* ContentView.swift in Sources */,
 				49A9CFBE2AE245DD00AC1A32 /* LanguageTriviaGameApp.swift in Sources */,
-				496BC0832AE3B915008EB517 /* CardModifier.swift in Sources */,
+				496BC0832AE3B915008EB517 /* CardTiltedView.swift in Sources */,
 				49A9CFCF2AE2527F00AC1A32 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,5 +14,6 @@ struct CardModifier: ViewModifier {
             .background(Color(uiColor: .systemBackground))
             .foregroundStyle(Color(uiColor: .label))
             .clipShape(RoundedRectangle(cornerRadius: Theme.cornerRadius))
+            .shadow(radius: Theme.cardsShadowRadius)
     }
 }

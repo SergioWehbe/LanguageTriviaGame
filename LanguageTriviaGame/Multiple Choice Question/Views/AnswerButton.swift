@@ -14,15 +14,15 @@ struct AnswerButton: View {
     var body: some View {
         
         Button {
-            
+            print("Answer tapped: \(title)")
         } label: {
             HStack {
                 Spacer()
                 Text(title)
-                    .font(.title2)
                 Spacer()
             }
         }
+        .font(.title2)
         .modifier(CardModifier())
     }
 }
