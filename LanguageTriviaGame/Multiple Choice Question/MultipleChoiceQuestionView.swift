@@ -24,7 +24,7 @@ struct MultipleChoiceQuestionView: View {
             
             Spacer()
             
-            ForEach(model.answerArray, id: \.self) { answer in
+            ForEach(model.answerArray.shuffled(), id: \.self) { answer in
                 AnswerButton(title: answer)
             }
             

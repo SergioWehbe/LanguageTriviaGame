@@ -22,13 +22,22 @@ struct MultipleChoiceQuestionModel {
         .init(question: "How do people call a stranger on the street in 🇱🇧Lebanon?",
               answerArray: ["My Eye",
                             "My Brother",
-                            "My Lover"]),
+                            "My Lover"]
+             ),
         .init(question: "The 🇩🇪German word \"Gift\" means:",
               answerArray: ["gift",
                             "song",
                             "secret",
                             "poison"],
-              correctAnswer: "poison")
+              correctAnswer: "poison"
+             ),
+        .init(question: "The 🇫🇷French word \"but\" means:",
+              answerArray: ["butt",
+                            "arm",
+                            "however",
+                            "goal"],
+              correctAnswer: "goal"
+             )
     ]
 }
 
