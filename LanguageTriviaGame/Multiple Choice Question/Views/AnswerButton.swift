@@ -10,11 +10,12 @@ import SwiftUI
 struct AnswerButton: View {
     
     let title: String
+    let didTapButton: () -> Void
     
     var body: some View {
         
         Button {
-            print("Answer tapped: \(title)")
+            didTapButton()
         } label: {
             HStack {
                 Spacer()
@@ -28,5 +29,5 @@ struct AnswerButton: View {
 }
 
 #Preview {
-    AnswerButton(title: "The Answer")
+    AnswerButton(title: "The Answer") { }
 }

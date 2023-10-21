@@ -10,6 +10,7 @@ import SwiftUI
 struct MultipleChoiceQuestionView: View {
     
     let model: MultipleChoiceQuestionModel
+    let didAnswer: (AnswerType) -> Void
     
     var body: some View {
         VStack {
@@ -25,11 +26,20 @@ struct MultipleChoiceQuestionView: View {
             Spacer()
             
             ForEach(model.answerArray.shuffled(), id: \.self) { answer in
-                AnswerButton(title: answer)
+                AnswerButton(title: answer) {
+                    if let correctAnswer = model.correctAnswer {
+                        didAnswer(answer == correctAnswer ? .correct : .wrong)
+                    } else {
+                        didAnswer(.partial)
+                    }
+                }
+                    .transition(.move(edge: .bottom))
             }
             
             if model.correctAnswer == nil {
-                AnswerButton(title: "All of the above")
+                AnswerButton(title: "All of the above") {
+                    didAnswer(model.correctAnswer == nil ? .correct : .wrong)
+                }
             }
             
             Spacer()

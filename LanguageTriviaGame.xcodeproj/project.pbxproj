@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4909713B2AE41E61006C8BC3 /* AnswerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4909713A2AE41E61006C8BC3 /* AnswerType.swift */; };
 		496BC07E2AE3B01E008EB517 /* MultipleChoiceQuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BC07D2AE3B01E008EB517 /* MultipleChoiceQuestionModel.swift */; };
 		496BC0802AE3B253008EB517 /* MultipleChoiceQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BC07F2AE3B253008EB517 /* MultipleChoiceQuestionView.swift */; };
 		496BC0832AE3B915008EB517 /* CardTiltedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BC0822AE3B915008EB517 /* CardTiltedView.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4909713A2AE41E61006C8BC3 /* AnswerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerType.swift; sourceTree = "<group>"; };
 		496BC07D2AE3B01E008EB517 /* MultipleChoiceQuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChoiceQuestionModel.swift; sourceTree = "<group>"; };
 		496BC07F2AE3B253008EB517 /* MultipleChoiceQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChoiceQuestionView.swift; sourceTree = "<group>"; };
 		496BC0822AE3B915008EB517 /* CardTiltedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTiltedView.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 				496BC07D2AE3B01E008EB517 /* MultipleChoiceQuestionModel.swift */,
 				496BC07F2AE3B253008EB517 /* MultipleChoiceQuestionView.swift */,
 				496BC0812AE3B8C0008EB517 /* Views */,
+				4909713A2AE41E61006C8BC3 /* AnswerType.swift */,
 			);
 			path = "Multiple Choice Question";
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				496BC07E2AE3B01E008EB517 /* MultipleChoiceQuestionModel.swift in Sources */,
 				496BC0872AE3D224008EB517 /* CardModifier.swift in Sources */,
 				496BC0802AE3B253008EB517 /* MultipleChoiceQuestionView.swift in Sources */,
+				4909713B2AE41E61006C8BC3 /* AnswerType.swift in Sources */,
 				49A9CFC02AE245DD00AC1A32 /* ContentView.swift in Sources */,
 				49A9CFBE2AE245DD00AC1A32 /* LanguageTriviaGameApp.swift in Sources */,
 				496BC0832AE3B915008EB517 /* CardTiltedView.swift in Sources */,
