@@ -9,31 +9,58 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State var currentModel: MultipleChoiceQuestionModel = MultipleChoiceQuestionModel.exampleArray[0]
     @State var currentQuestion: Int = 0
-    @State var isShowingAlert: Bool = false
-    @State var alertMessage: String = ""
+    @State var showQuestion: Bool = false
+    @State var answerType: AnswerType? = nil
     
     var body: some View {
-        MultipleChoiceQuestionView(model: MultipleChoiceQuestionModel.exampleArray[currentQuestion]) { answerType in
-            switch answerType {
-            case .correct:
-                alertMessage = "Correct!"
-            case .wrong:
-                alertMessage = "Not Correct"
-            case .partial:
-                alertMessage = "That was partially correct"
+        MultipleChoiceQuestionView(model: $currentModel, showQuestion: $showQuestion, didAnswer: didAnswer)
+            .animation(.default, value: showQuestion)
+            .overlay {
+                if let answerType {
+                    VStack {
+                        Spacer()
+                        Spacer()
+                        Text(answerType.rawValue)
+                            .font(.system(size: 50))
+                            .foregroundStyle(answerType.color)
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                    }
+                }
             }
-            isShowingAlert = true
+            .onAppear {
+                showQuestion = true
+            }
+    }
+    
+    private func didAnswer(answerType: AnswerType) {
+        self.answerType = answerType
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            resetStates()
+            nextQuestion()
             
-            if (currentQuestion + 1) == MultipleChoiceQuestionModel.exampleArray.count {
-                currentQuestion = 0
-            } else {
-                currentQuestion += 1
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                currentModel = MultipleChoiceQuestionModel.exampleArray[currentQuestion]
+                showQuestion = true
             }
         }
-        .alert(alertMessage, isPresented: $isShowingAlert) {
-            Button("OK", role: .cancel) { }
+    }
+    
+    private func nextQuestion() {
+        if (currentQuestion + 1) == MultipleChoiceQuestionModel.exampleArray.count {
+            currentQuestion = 0
+        } else {
+            currentQuestion += 1
         }
+    }
+    
+    private func resetStates() {
+        answerType = nil
+        showQuestion = false
     }
 }
 

@@ -5,10 +5,21 @@
 //  Created by Sergio Wehbe on 21/10/2023.
 //
 
-import Foundation
+import SwiftUI
 
-enum AnswerType {
-    case correct
-    case wrong
-    case partial
+enum AnswerType: String {
+    case correct = "Correct!"
+    case wrong = "Not Correct"
+    case partial = "Partially correct"
+    
+    var color: Color {
+        switch self {
+        case .correct:
+                .green
+        case .wrong:
+                .red
+        case .partial:
+                .yellow
+        }
+    }
 }

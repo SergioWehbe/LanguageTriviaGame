@@ -25,6 +25,7 @@ struct AnswerButton: View {
         }
         .font(.title2)
         .modifier(CardModifier())
+        .transition(.slide.combined(with: .opacity))
     }
 }
 
