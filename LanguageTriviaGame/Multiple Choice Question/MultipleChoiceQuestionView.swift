@@ -9,16 +9,13 @@ import SwiftUI
 
 struct MultipleChoiceQuestionView: View {
     
-    @Binding var model: MultipleChoiceQuestionModel
-    @Binding var showQuestion: Bool
-    let didAnswer: (AnswerType) -> Void
-    
     var body: some View {
+        let _ = Self._printChanges()
         VStack {
             Spacer()
                 .frame(height: 60)
             
-            Text(model.question)
+            Text(GameStateManager.shared.currentModel.question)
                 .font(.title)
                 .multilineTextAlignment(.center)
                 .frame(maxWidth: .infinity)
@@ -26,25 +23,25 @@ struct MultipleChoiceQuestionView: View {
                 .modifier(CardModifier())
                 .background(CardTiltedView())
                 .background(CardTiltedView())
-                .offset(y: showQuestion ? 0 : -300)
+                .offset(y: GameStateManager.shared.showQuestion ? 0 : -300)
             
             Spacer()
             
-            if showQuestion {
+            if GameStateManager.shared.showQuestion {
                 
-                ForEach(model.answerArray.shuffled(), id: \.self) { answer in
+                ForEach(Array(GameStateManager.shared.currentModel.answerArrayToShow), id: \.self) { answer in
                     AnswerButton(title: answer) {
-                        if let correctAnswer = model.correctAnswer {
-                            didAnswer(answer == correctAnswer ? .correct : .wrong)
+                        if let correctAnswer = GameStateManager.shared.currentModel.correctAnswer {
+                            GameStateManager.shared.didAnswer(answerType: answer == correctAnswer ? .correct : .wrong)
                         } else {
-                            didAnswer(.partial)
+                            GameStateManager.shared.didAnswer(answerType: .partial)
                         }
                     }
                 }
                 
-                if model.correctAnswer == nil {
+                if GameStateManager.shared.currentModel.hasAllOfTheAbove {
                     AnswerButton(title: "All of the above") {
-                        didAnswer(model.correctAnswer == nil ? .correct : .wrong)
+                        GameStateManager.shared.didAnswer(answerType: GameStateManager.shared.currentModel.isAllOfTheAboveCorrectAnswer ? .correct : .wrong)
                     }
                 }
                 
@@ -55,6 +52,23 @@ struct MultipleChoiceQuestionView: View {
         .padding()
         .frame(maxWidth: .infinity)
         .background(Theme.mainBackground)
+    }
+}
+
+extension MultipleChoiceQuestionModel {
+    
+    var answerArrayToShow: [String] {
+        if let correctAnswer {
+            let wrongAnswersCount = GameStateManager.shared.currentModel.hasAllOfTheAbove ? 2 : 3
+            return answerArray.shuffled().prefix(wrongAnswersCount) + [correctAnswer]
+        } else {
+            let wrongAnswersCount = GameStateManager.shared.currentModel.hasAllOfTheAbove ? 3 : 4
+            return answerArray.shuffled().prefix(wrongAnswersCount) + []
+        }
+    }
+    
+    var isAllOfTheAboveCorrectAnswer: Bool {
+        correctAnswer == nil
     }
 }
 
