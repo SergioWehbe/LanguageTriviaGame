@@ -37,12 +37,14 @@ struct MultipleChoiceQuestionView: View {
                             GameStateManager.shared.didAnswer(answerType: .partial)
                         }
                     }
+                    .disabled(GameStateManager.shared.answerType != nil)
                 }
                 
                 if GameStateManager.shared.currentModel.hasAllOfTheAbove {
                     AnswerButton(title: "All of the above") {
                         GameStateManager.shared.didAnswer(answerType: GameStateManager.shared.currentModel.isAllOfTheAboveCorrectAnswer ? .correct : .wrong)
                     }
+                    .disabled(GameStateManager.shared.answerType != nil)
                 }
                 
             }
@@ -52,23 +54,6 @@ struct MultipleChoiceQuestionView: View {
         .padding()
         .frame(maxWidth: .infinity)
         .background(Theme.mainBackground)
-    }
-}
-
-extension MultipleChoiceQuestionModel {
-    
-    var answerArrayToShow: [String] {
-        if let correctAnswer {
-            let wrongAnswersCount = GameStateManager.shared.currentModel.hasAllOfTheAbove ? 2 : 3
-            return answerArray.shuffled().prefix(wrongAnswersCount) + [correctAnswer]
-        } else {
-            let wrongAnswersCount = GameStateManager.shared.currentModel.hasAllOfTheAbove ? 3 : 4
-            return answerArray.shuffled().prefix(wrongAnswersCount) + []
-        }
-    }
-    
-    var isAllOfTheAboveCorrectAnswer: Bool {
-        correctAnswer == nil
     }
 }
 

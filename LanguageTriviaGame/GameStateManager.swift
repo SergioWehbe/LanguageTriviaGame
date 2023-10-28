@@ -27,7 +27,7 @@ import SwiftUI
             prepareNextQuestion()
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
             guard let self else { return }
             goToNextQuestion()
         }

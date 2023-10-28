@@ -13,6 +13,20 @@ struct MultipleChoiceQuestionModel {
     let correctAnswer: String?
     let hasAllOfTheAbove: Bool
     
+    lazy var answerArrayToShow: [String] = {
+        if let correctAnswer {
+            let wrongAnswersCount = GameStateManager.shared.currentModel.hasAllOfTheAbove ? 2 : 3
+            return answerArray.shuffled().prefix(wrongAnswersCount) + [correctAnswer]
+        } else {
+            let wrongAnswersCount = GameStateManager.shared.currentModel.hasAllOfTheAbove ? 3 : 4
+            return answerArray.shuffled().prefix(wrongAnswersCount) + []
+        }
+    }()
+    
+    var isAllOfTheAboveCorrectAnswer: Bool {
+        correctAnswer == nil
+    }
+    
     init(question: String, answerArray: [String], correctAnswer: String, hasAllOfTheAbove: Bool = false) {
         self.question = question
         self.answerArray = answerArray
